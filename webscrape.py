@@ -6,7 +6,7 @@
 
 import requests, os, bs4
 from bs4 import BeautifulSoup
-from urlparse import urljoin
+#from urlparse import urljoin
 url = 'http://www.amazon.com/Automate-Boring-Stuff-Python-Programming/dp/1593275994/'
 
 res = requests.get(url)
@@ -22,11 +22,11 @@ headers = {
 #res.raise_for_status()
 
 #scrape
-soup = bs4.BeautifulSoup(res.content)
+#soup = bs4.BeautifulSoup(res.content)
 #quiet version with arguement "lxml"
 soup_txt = bs4.BeautifulSoup(res.content, "lxml")
-soup_txt = bs4.BeautifulSoup(res.text, 'html.parser')
-elems = soup_txt.select('#newOfferAccordionRow .header-price')
+#soup_txt = bs4.BeautifulSoup(res.text, 'html.parser')
+#elems = soup_txt.select('#newOfferAccordionRow .header-price')
 
 soup_txt = bs4.BeautifulSoup(res.text)
            
