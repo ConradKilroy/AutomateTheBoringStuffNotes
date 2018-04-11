@@ -34,8 +34,7 @@ my_cart.add_item("Bananas", 3.5)
 print my_cart.items_in_cart
 
 
-#Inheritance is a tricky concept, so let's go through it step by step.
-#Inheritance is the process by which one class takes on the attributes and methods of another, and it's used to express an is-a relationship. For example, a Panda is a bear, so a Panda class could inherit from a Bear class. However, a Toyota is not a Tractor, so it shouldn't inherit from the Tractor class (even if they have a lot of attributes and methods in common). Instead, both Toyota and Tractor could ultimately inherit from the same Vehicle class.
+
 
 class Customer(object):
   """Produces objects that represent customers."""
@@ -57,4 +56,48 @@ monty_python.display_order_history()
 #note: Check out the code in the editor. We've defined a class, Customer, as well as a ReturningCustomer class that inherits 
 #from Customer. Note that we don't define the display_cart method in the body of ReturningCustomer, but it will still have access 
 #to that method via inheritance. Click Run to see for yourself!
+
+
+
+
+#Inheritance is a tricky concept, so let's go through it step by step.
+#Inheritance is the process by which one class takes on the attributes and methods of another, and it's used to express an is-a relationship. For example, a Panda is a bear, so a Panda class could inherit from a Bear class. However, a Toyota is not a Tractor, so it shouldn't inherit from the Tractor class (even if they have a lot of attributes and methods in common). Instead, both Toyota and Tractor could ultimately inherit from the same Vehicle class.
+
+#----------------
+#Override Inheritance!
+#Sometimes you'll want one class that inherits from another to not only take on the methods and attributes of its parent,
+#but to override one or more of them.
+
+class Employee(object):
+  def __init__(self, name):
+    self.name = name
+  def greet(self, other):
+    print "Hello, %s" % other.name
+
+class CEO(Employee):
+  def greet(self, other):
+    print "Get back to work, %s!" % other.name
+
+ceo = CEO("Emily")
+emp = Employee("Steve")
+emp.greet(ceo)
+# Hello, Emily
+ceo.greet(emp)
+# Get back to work, Steve!
+
+
+############Calling overrided inheritance functions
+#On the flip side, sometimes you'll be working with a derived class (or subclass) and realize that you've overwritten a method 
+#or attribute defined in that class' base class (also called a parent or superclass) that you actually need. 
+#Have no fear! You can directly access the attributes or methods of a superclass with Python's built-in super call.
+
+#The syntax looks like this:
+
+class Derived(Base):
+  def m(self):
+    return super(Derived, self).m()
+
+#Where m() is a method from the base class.
+
+
 
