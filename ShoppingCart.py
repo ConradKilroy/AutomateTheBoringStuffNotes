@@ -1,3 +1,6 @@
+#Lesson source
+#https://www.codecademy.com/courses/learn-python/lessons/introduction-to-classes/exercises/its-not-all-animals-and-fruits
+
 class ShoppingCart(object):
   """Creates shopping cart objects
   for users of our fine website."""
